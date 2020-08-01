@@ -20,12 +20,12 @@ app.set("view engine", "ejs");
 app.set("views", "./views");
 app.use(favicon('public/images/favicon.ico'));
 
-const httpsOptions = {
-    key: fs.readFileSync('../ssl/localhost.key'),
-    cert: fs.readFileSync('../ssl/localhost.crt')
-}
-const server = https.createServer(httpsOptions, app);
-// const server = require("http").Server(app);
+//const httpsOptions = {
+//    key: fs.readFileSync('../ssl/localhost.key'),
+//    cert: fs.readFileSync('../ssl/localhost.crt')
+//}
+//const server = https.createServer(httpsOptions, app);
+const server = require("http").Server(app);
 const io = require("socket.io")(server);
 const port = process.env.PORT || 3000;
 
